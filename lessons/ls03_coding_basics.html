@@ -1898,20 +1898,19 @@ packages.</p>
 the {pacman} package itself, if it is missing on a user’s computer.</p>
 <p>But if you put the <code>install.packages()</code> line in a script,
 like so:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
-<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(here, rmarkdown)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(here, rmarkdown)</span></code></pre></div>
 <p>you will waste a lot of time. Because every time a user opens and
 runs a script, it will <em>reinstall</em> {pacman}, which can take a
 while. Instead we need code that first <em>checks whether pacman is not
 yet installed</em> and installs it if this is not the case.</p>
 <p>We can do this with the following code:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
 <p>You do not have to understand it at the moment, as it uses some
 syntax that you have not yet learned. Just note that in future chapters,
 we will often start a script with code like this:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(here, rmarkdown)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(here, rmarkdown)</span></code></pre></div>
 <p>The first line will install {pacman} if it is not yet installed. The
 second line will use <code>p_load()</code> function from {pacman} to
 load the remaining packages (and <code>pacman::p_load()</code> installs
@@ -1925,18 +1924,18 @@ recommend you have in your script?</p>
 <ol style="list-style-type: upper-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(janitor)</span></code></pre></div>
 <ol start="2" style="list-style-type: upper-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;janitor&quot;</span>)</span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;janitor&quot;</span>)</span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <ol start="3" style="list-style-type: upper-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;janitor&quot;</span>)</span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;janitor&quot;</span>)</span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(janitor)</span></code></pre></div>
 </div>
 </div>
 </div>
