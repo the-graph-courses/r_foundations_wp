@@ -800,7 +800,7 @@ script.</p>
 </div>
 <div id="comments" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Comments</h1>
-<p>There are two main type of text in an R script: commands and
+<p>There are two main types of text in an R script: commands and
 comments. A command is a line or lines of R code that instructs R to do
 something (e.g. <code>2 + 2</code>)</p>
 <p>A comment is text that is ignored by the computer.</p>
@@ -1019,28 +1019,12 @@ a dataset on Ebola cases that we stored on Google Drive and put it in
 the object <code>ebola_sierra_leone_data</code>.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ebola_sierra_leone_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://tinyurl.com/ebola-data-sample&quot;</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ebola_sierra_leone_data <span class="co"># print ebola_data</span></span></code></pre></div>
-<pre><code>##     id age sex    status date_of_onset date_of_sample
-## 1  167  55   M confirmed    2014-06-15     2014-06-21
-## 2  129  41   M confirmed    2014-06-13     2014-06-18
-## 3  270  12   F confirmed    2014-06-28     2014-07-03
-## 4  187  NA   F confirmed    2014-06-19     2014-06-24
-## 5   85  20   M confirmed    2014-06-08     2014-06-24
-## 6  277  30   F confirmed    2014-06-29     2014-07-01
-## 7  263  62   F confirmed    2014-06-28     2014-07-03
-## 8   79  45   M confirmed    2014-06-07     2014-06-12
-## 9  213   8   F confirmed    2014-06-24     2014-06-29
-## 10  37  25   F confirmed    2014-05-29     2014-06-03
-##    district
-## 1    Kenema
-## 2  Kailahun
-## 3  Kailahun
-## 4  Kailahun
-## 5  Kailahun
-## 6    Kenema
-## 7    Kenema
-## 8  Kailahun
-## 9    Kenema
-## 10 Kailahun</code></pre>
+<pre><code>##    id age sex    status date_of_onset date_of_sample district
+## 1 167  55   M confirmed    2014-06-15     2014-06-21   Kenema
+## 2 129  41   M confirmed    2014-06-13     2014-06-18 Kailahun
+## 3 270  12   F confirmed    2014-06-28     2014-07-03 Kailahun
+## 4 187  NA   F confirmed    2014-06-19     2014-06-24 Kailahun
+## 5  85  20   M confirmed    2014-06-08     2014-06-24 Kailahun</code></pre>
 <p>This data contains a sample of patient information from the 2014-2016
 Ebola outbreak in Sierra Leone.</p>
 <hr />
@@ -1049,511 +1033,36 @@ multiple datasets at the same time.</p>
 <p>Below, we import and view another dataset from the web:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>diabetes_china <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://tinyurl.com/diabetes-china&quot;</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>diabetes_china <span class="co"># print diabetes_china</span></span></code></pre></div>
-<pre><code>##        id Age..y. Gender.1..male..2..female. site
-## 1   79765      77                          1    5
-## 2  616894      28                          1    5
-## 3  403048      36                          1    5
-## 4  564476      38                          1    5
-## 5  225430      31                          1    8
-## 6  462177      44                          1    2
-## 7   82338      52                          1    5
-## 8  106079      79                          2    4
-## 9  422778      30                          1    5
-## 10 377583      26                          2    8
-## 11  45671      65                          1    5
-## 12  27056      37                          1    2
-## 13  82723      31                          2    9
-## 14 293481      49                          2    5
-## 15  73002      36                          1    5
-## 16 339546      45                          1    5
-## 17  40067      57                          1    2
-## 18 566124      37                          1    9
-## 19 659039      62                          2    5
-## 20 299607      28                          1    7
-## 21 349703      59                          1    2
-## 22 541656      52                          1    8
-## 23 313884      61                          2    9
-## 24 147237      36                          2    4
-## 25 395260      39                          1    2
-## 26  21412      33                          2    2
-## 27 298711      27                          2   13
-## 28 486807      32                          2    5
-## 29 282985      41                          2    5
-## 30 375116      36                          1    8
-## 31 398284      57                          1    2
-## 32 390657      39                          2    4
-## 33  71572      78                          2    7
-## 34 613396      37                          2    9
-## 35 295109      52                          2   16
-## 36 628029      47                          2    7
-## 37 363382      43                          1    5
-## 38 493507      47                          1    4
-## 39  43521      38                          1   10
-## 40  26216      31                          2    3
-## 41  30876      41                          1    2
-##    height.cm. weight.kg. SBP.mmHg. DBP.mmHg.
-## 1       157.0       50.0       132        61
-## 2       164.5       77.0       100        70
-## 3       164.0       58.0       124        71
-## 4       168.0       79.0       104        70
-## 5       160.0       46.0       111        62
-## 6       170.0       68.0       131        94
-## 7       177.0       70.0       125        99
-## 8       157.0       50.0       169        94
-## 9       175.0       67.0       115        67
-## 10      159.0       55.5       130        69
-## 11      173.0       71.0       129        84
-## 12      172.0       68.0       140        85
-## 13      169.9       63.6       121        86
-## 14      163.5       61.1       126        84
-## 15      174.0       64.6       126        74
-## 16      175.0       79.0       112        78
-## 17      162.0       62.0       109        85
-## 18      168.3       65.2       106        64
-## 19      162.0       67.0       134        73
-## 20      176.5       76.0       109        72
-## 21      175.0       81.0       103        69
-## 22      164.0       54.5       106        71
-## 23      154.2       58.7       119        70
-## 24      158.5       51.1       105        60
-## 25      175.0       68.0       118        78
-## 26      155.0       42.0       111        77
-## 27      156.0       51.0       122        73
-## 28      152.0       49.0       104        60
-## 29      166.0       57.0       106        66
-## 30      172.0       66.0       105        68
-## 31      169.0       61.0       121        94
-## 32      169.0       53.0       122        72
-## 33      151.0       56.1       136        69
-## 34      157.0       49.0       100        60
-## 35      155.7       61.9        99        57
-## 36      158.0       58.0       130        79
-## 37      166.0       66.0       126        75
-## 38      169.5       64.2       128        83
-## 39      161.5       63.2       100        62
-## 40      155.5       54.5       106        74
-## 41      173.0       78.0       100        69
-##    FPG..mmol.L. Cholesterol.mmol.L.
-## 1          5.32                4.70
-## 2          6.01                5.00
-## 3          4.69                4.00
-## 4          4.68                4.31
-## 5          4.70                3.66
-## 6          5.36                4.52
-## 7          5.15                4.30
-## 8          5.24                6.83
-## 9          6.22                4.30
-## 10         5.30                5.13
-## 11         4.22                4.80
-## 12         3.99                5.23
-## 13         4.81                4.28
-## 14         5.27                5.80
-## 15         5.73                4.74
-## 16         5.00                4.86
-## 17         4.83                4.59
-## 18         3.93                3.89
-## 19         5.00                6.10
-## 20         4.60                5.56
-## 21         4.75                3.76
-## 22         5.30                4.53
-## 23         6.08                5.20
-## 24         5.56                6.51
-## 25         4.44                6.48
-## 26         4.19                5.44
-## 27         4.58                4.51
-## 28         4.20                3.90
-## 29         5.29                4.50
-## 30         5.30                5.46
-## 31         4.49                4.65
-## 32         5.39                5.63
-## 33         4.90                5.42
-## 34         4.63                3.54
-## 35         5.50                4.39
-## 36         4.70                3.10
-## 37         4.18                3.33
-## 38         4.80                5.06
-## 39         5.29                5.18
-## 40         4.91                4.21
-## 41         5.14                4.30
-##    Triglyceride.mmol.L. HDL.c.mmol.L. LDL.mmol.L.
-## 1                  0.50          1.01        2.98
-## 2                  2.75          0.85        2.47
-## 3                  0.60            NA          NA
-## 4                  2.26          1.13        2.27
-## 5                  0.66            NA          NA
-## 6                  2.06          0.81        3.21
-## 7                  1.30          1.33        2.87
-## 8                  2.50          1.11        4.41
-## 9                  1.30          1.66        2.51
-## 10                 0.73            NA          NA
-## 11                 1.30          1.85        2.50
-## 12                 1.26            NA          NA
-## 13                 0.93            NA          NA
-## 14                 0.70          1.36        3.86
-## 15                 1.65          1.17        3.04
-## 16                 1.46            NA          NA
-## 17                 1.01          0.83        3.19
-## 18                 0.80          1.45        1.98
-## 19                 0.90          1.65        3.54
-## 20                 1.67            NA          NA
-## 21                 0.74          1.21        2.17
-## 22                 0.49          1.64        2.75
-## 23                 1.46          1.46        3.10
-## 24                 0.56          2.34        4.04
-## 25                 1.41          2.26        3.90
-## 26                 0.91            NA          NA
-## 27                 1.01          1.88        2.51
-## 28                 0.50          1.10        2.43
-## 29                 1.00            NA          NA
-## 30                 1.61          1.30        3.35
-## 31                 0.80          1.24        2.86
-## 32                 0.66          1.81        3.45
-## 33                 1.37            NA          NA
-## 34                 0.85          1.13        2.07
-## 35                 0.88            NA          NA
-## 36                 1.23            NA          NA
-## 37                 0.50            NA          NA
-## 38                 1.03          1.27        3.06
-## 39                 4.15          1.60        2.17
-## 40                 1.36            NA          NA
-## 41                 2.41            NA          NA
-##    ALT.U.L. AST.U.L. BUN.mmol.L. CCR.umol.L.
-## 1      13.0     20.0        6.73        99.0
-## 2      31.0       NA        5.25        85.0
-## 3      14.0     22.0        5.93        90.0
-## 4      57.0     37.0        5.02        72.0
-## 5      23.3       NA        5.00        78.6
-## 6      39.0       NA        4.22        67.4
-## 7      26.0     24.0        6.08        91.0
-## 8      14.7       NA        4.70        63.9
-## 9      21.0     20.0        3.85        96.0
-## 10     13.2       NA        3.30        58.6
-## 11     33.0       NA        4.91        75.0
-## 12     17.5       NA          NA        82.7
-## 13      8.0       NA          NA          NA
-## 14     17.0       NA        4.99        96.0
-## 15     16.0     18.0        4.83        75.0
-## 16     21.0     15.0        5.30        84.0
-## 17     10.0       NA        3.00        68.5
-## 18     25.6     34.0        4.04        92.7
-## 19     19.0     28.0        5.90        69.0
-## 20     21.3       NA        5.80        96.1
-## 21     11.9       NA        4.02        77.5
-## 22     19.3     28.1        4.30        71.6
-## 23     16.7       NA        3.73        59.0
-## 24     11.1       NA        4.41        57.4
-## 25     15.5       NA        4.41        73.3
-## 26      7.7       NA        3.27        66.1
-## 27     22.0       NA        3.32        46.6
-## 28     26.0     27.0        5.28        61.0
-## 29     13.0     20.0        4.23        66.0
-## 30     23.0       NA        3.30        86.5
-## 31     18.0     20.8        4.49        67.7
-## 32     27.2     29.7        4.17        45.8
-## 33      9.1       NA        5.70        67.0
-## 34      7.9     18.1        3.06        45.1
-## 35     11.8     17.6        5.51        43.0
-## 36      8.5       NA        4.20        56.5
-## 37     11.0     18.0        4.59        59.0
-## 38     13.3     18.5        7.26        96.7
-## 39     22.0       NA        3.00        98.0
-## 40      8.5     15.4        3.04        61.3
-## 41     17.8       NA          NA          NA
-##    FPG.of.final.visit.mmol.L.
-## 1                        5.20
-## 2                        6.20
-## 3                        5.00
-## 4                        5.30
-## 5                        4.97
-## 6                        4.76
-## 7                        5.50
-## 8                        5.00
-## 9                        5.00
-## 10                       5.30
-## 11                       5.50
-## 12                       4.80
-## 13                       5.30
-## 14                       4.70
-## 15                       5.90
-## 16                       5.40
-## 17                       4.80
-## 18                       5.09
-## 19                       6.60
-## 20                       3.95
-## 21                       4.89
-## 22                       5.46
-## 23                       5.30
-## 24                       5.30
-## 25                       5.00
-## 26                       5.23
-## 27                       4.40
-## 28                       4.90
-## 29                       5.26
-## 30                       5.56
-## 31                       4.47
-## 32                       5.20
-## 33                       4.51
-## 34                       5.40
-## 35                       5.09
-## 36                       4.45
-## 37                       4.90
-## 38                       4.80
-## 39                       5.13
-## 40                       5.02
-## 41                       8.10
-##    Diabetes.diagnosed.during.followup.1.Yes.
-## 1                                         NA
-## 2                                         NA
-## 3                                         NA
-## 4                                         NA
-## 5                                         NA
-## 6                                         NA
-## 7                                         NA
-## 8                                         NA
-## 9                                         NA
-## 10                                        NA
-## 11                                        NA
-## 12                                        NA
-## 13                                        NA
-## 14                                        NA
-## 15                                        NA
-## 16                                        NA
-## 17                                        NA
-## 18                                        NA
-## 19                                        NA
-## 20                                        NA
-## 21                                        NA
-## 22                                        NA
-## 23                                        NA
-## 24                                        NA
-## 25                                        NA
-## 26                                        NA
-## 27                                        NA
-## 28                                        NA
-## 29                                        NA
-## 30                                        NA
-## 31                                        NA
-## 32                                        NA
-## 33                                        NA
-## 34                                        NA
-## 35                                        NA
-## 36                                        NA
-## 37                                        NA
-## 38                                        NA
-## 39                                        NA
-## 40                                        NA
-## 41                                        NA
-##    censor.of.diabetes.at.followup.1..Yes..0..No.
-## 1                                              0
-## 2                                              0
-## 3                                              0
-## 4                                              0
-## 5                                              0
-## 6                                              0
-## 7                                              0
-## 8                                              0
-## 9                                              0
-## 10                                             0
-## 11                                             0
-## 12                                             0
-## 13                                             0
-## 14                                             0
-## 15                                             0
-## 16                                             0
-## 17                                             0
-## 18                                             0
-## 19                                             0
-## 20                                             0
-## 21                                             0
-## 22                                             0
-## 23                                             0
-## 24                                             0
-## 25                                             0
-## 26                                             0
-## 27                                             0
-## 28                                             0
-## 29                                             0
-## 30                                             0
-## 31                                             0
-## 32                                             0
-## 33                                             0
-## 34                                             0
-## 35                                             0
-## 36                                             0
-## 37                                             0
-## 38                                             0
-## 39                                             0
-## 40                                             0
-## 41                                             1
-##    year.of.followup
-## 1          3.759069
-## 2          5.114305
-## 3          3.348392
-## 4          3.342916
-## 5          2.001369
-## 6          3.044490
-## 7          4.041068
-## 8          2.017796
-## 9          2.036961
-## 10         2.168378
-## 11         4.093087
-## 12         3.882272
-## 13         2.899384
-## 14         3.923340
-## 15         4.944559
-## 16         2.067077
-## 17         4.019165
-## 18         4.791239
-## 19         3.860370
-## 20         2.743326
-## 21         2.740589
-## 22         2.012320
-## 23         2.015058
-## 24         2.264203
-## 25         3.006160
-## 26         3.049966
-## 27         3.008898
-## 28         2.762491
-## 29         2.184805
-## 30         3.189596
-## 31         3.737166
-## 32         3.118412
-## 33         2.127310
-## 34         3.203285
-## 35         2.009582
-## 36         2.006845
-## 37         3.871321
-## 38         5.152635
-## 39         2.135524
-## 40         3.071869
-## 41         5.065024
-##    smoking.status.1.current.smoker.2..ever.smoker.3.never.smoker.
-## 1                                                              NA
-## 2                                                              NA
-## 3                                                              NA
-## 4                                                              NA
-## 5                                                               3
-## 6                                                              NA
-## 7                                                              NA
-## 8                                                              NA
-## 9                                                              NA
-## 10                                                             NA
-## 11                                                             NA
-## 12                                                             NA
-## 13                                                             NA
-## 14                                                              3
-## 15                                                             NA
-## 16                                                             NA
-## 17                                                             NA
-## 18                                                             NA
-## 19                                                             NA
-## 20                                                             NA
-## 21                                                              2
-## 22                                                              3
-## 23                                                             NA
-## 24                                                             NA
-## 25                                                              1
-## 26                                                             NA
-## 27                                                             NA
-## 28                                                             NA
-## 29                                                             NA
-## 30                                                              3
-## 31                                                             NA
-## 32                                                             NA
-## 33                                                             NA
-## 34                                                             NA
-## 35                                                              3
-## 36                                                             NA
-## 37                                                             NA
-## 38                                                             NA
-## 39                                                              3
-## 40                                                              3
-## 41                                                             NA
-##    drinking.status.1.current.drinker.2..ever.drinker.3.never.drinker.
-## 1                                                                  NA
-## 2                                                                  NA
-## 3                                                                  NA
-## 4                                                                  NA
-## 5                                                                   3
-## 6                                                                  NA
-## 7                                                                  NA
-## 8                                                                  NA
-## 9                                                                  NA
-## 10                                                                 NA
-## 11                                                                 NA
-## 12                                                                 NA
-## 13                                                                 NA
-## 14                                                                  3
-## 15                                                                 NA
-## 16                                                                 NA
-## 17                                                                 NA
-## 18                                                                 NA
-## 19                                                                 NA
-## 20                                                                 NA
-## 21                                                                  2
-## 22                                                                  3
-## 23                                                                 NA
-## 24                                                                 NA
-## 25                                                                  3
-## 26                                                                 NA
-## 27                                                                 NA
-## 28                                                                 NA
-## 29                                                                 NA
-## 30                                                                  3
-## 31                                                                 NA
-## 32                                                                 NA
-## 33                                                                 NA
-## 34                                                                 NA
-## 35                                                                  3
-## 36                                                                 NA
-## 37                                                                 NA
-## 38                                                                 NA
-## 39                                                                  3
-## 40                                                                  3
-## 41                                                                 NA
-##    family.histroy.of.diabetes.1.Yes.0.No.
-## 1                                       0
-## 2                                       0
-## 3                                       0
-## 4                                       0
-## 5                                       0
-## 6                                       0
-## 7                                       0
-## 8                                       0
-## 9                                       0
-## 10                                      0
-## 11                                      0
-## 12                                      0
-## 13                                      0
-## 14                                      0
-## 15                                      0
-## 16                                      0
-## 17                                      0
-## 18                                      0
-## 19                                      0
-## 20                                      0
-## 21                                      0
-## 22                                      0
-## 23                                      0
-## 24                                      0
-## 25                                      0
-## 26                                      0
-## 27                                      0
-## 28                                      0
-## 29                                      0
-## 30                                      0
-## 31                                      0
-## 32                                      0
-## 33                                      0
-## 34                                      0
-## 35                                      0
-## 36                                      0
-## 37                                      0
-## 38                                      0
-## 39                                      0
-## 40                                      0
-## 41                                      0
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 159 rows ]</code></pre>
+<pre><code>##       id Age..y. Gender.1..male..2..female. site height.cm. weight.kg. SBP.mmHg. DBP.mmHg. FPG..mmol.L.
+## 1  79765      77                          1    5      157.0         50       132        61         5.32
+## 2 616894      28                          1    5      164.5         77       100        70         6.01
+## 3 403048      36                          1    5      164.0         58       124        71         4.69
+## 4 564476      38                          1    5      168.0         79       104        70         4.68
+## 5 225430      31                          1    8      160.0         46       111        62         4.70
+##   Cholesterol.mmol.L. Triglyceride.mmol.L. HDL.c.mmol.L. LDL.mmol.L. ALT.U.L. AST.U.L. BUN.mmol.L. CCR.umol.L.
+## 1                4.70                 0.50          1.01        2.98     13.0       20        6.73        99.0
+## 2                5.00                 2.75          0.85        2.47     31.0       NA        5.25        85.0
+## 3                4.00                 0.60            NA          NA     14.0       22        5.93        90.0
+## 4                4.31                 2.26          1.13        2.27     57.0       37        5.02        72.0
+## 5                3.66                 0.66            NA          NA     23.3       NA        5.00        78.6
+##   FPG.of.final.visit.mmol.L. Diabetes.diagnosed.during.followup.1.Yes. censor.of.diabetes.at.followup.1..Yes..0..No.
+## 1                       5.20                                        NA                                             0
+## 2                       6.20                                        NA                                             0
+## 3                       5.00                                        NA                                             0
+## 4                       5.30                                        NA                                             0
+## 5                       4.97                                        NA                                             0
+##   year.of.followup smoking.status.1.current.smoker.2..ever.smoker.3.never.smoker.
+## 1         3.759069                                                             NA
+## 2         5.114305                                                             NA
+## 3         3.348392                                                             NA
+## 4         3.342916                                                             NA
+## 5         2.001369                                                              3
+##   drinking.status.1.current.drinker.2..ever.drinker.3.never.drinker. family.histroy.of.diabetes.1.Yes.0.No.
+## 1                                                                 NA                                      0
+## 2                                                                 NA                                      0
+## 3                                                                 NA                                      0
+## 4                                                                 NA                                      0
+## 5                                                                  3                                      0</code></pre>
 <p>Because the dataset above is quite large, it may be helpful to look
 at it in the data viewer:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(diabetes_china)</span></code></pre></div>
@@ -1798,14 +1307,10 @@ for each <em>argument</em>:</p>
 returns the first few elements of an object.</p>
 <p>To return the first three rows of the Ebola dataset, you run:</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="at">x =</span> ebola_data, <span class="at">n =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##    id age sex    status date_of_onset date_of_sample
-## 1 167  55   M confirmed    2014-06-15     2014-06-21
-## 2 129  41   M confirmed    2014-06-13     2014-06-18
-## 3 270  12   F confirmed    2014-06-28     2014-07-03
-##   district
-## 1   Kenema
-## 2 Kailahun
-## 3 Kailahun</code></pre>
+<pre><code>##    id age sex    status date_of_onset date_of_sample district
+## 1 167  55   M confirmed    2014-06-15     2014-06-21   Kenema
+## 2 129  41   M confirmed    2014-06-13     2014-06-18 Kailahun
+## 3 270  12   F confirmed    2014-06-28     2014-07-03 Kailahun</code></pre>
 <p>In the code above, <code>head()</code> takes in two arguments:</p>
 <ul>
 <li><p><code>x</code> , the object of interest, and</p></li>
@@ -1813,36 +1318,24 @@ returns the first few elements of an object.</p>
 </ul>
 <p>We can also swap the order of the arguments:</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">x =</span> ebola_data)</span></code></pre></div>
-<pre><code>##    id age sex    status date_of_onset date_of_sample
-## 1 167  55   M confirmed    2014-06-15     2014-06-21
-## 2 129  41   M confirmed    2014-06-13     2014-06-18
-## 3 270  12   F confirmed    2014-06-28     2014-07-03
-##   district
-## 1   Kenema
-## 2 Kailahun
-## 3 Kailahun</code></pre>
+<pre><code>##    id age sex    status date_of_onset date_of_sample district
+## 1 167  55   M confirmed    2014-06-15     2014-06-21   Kenema
+## 2 129  41   M confirmed    2014-06-13     2014-06-18 Kailahun
+## 3 270  12   F confirmed    2014-06-28     2014-07-03 Kailahun</code></pre>
 <hr />
 <p>If you put the argument values in the right order, you can skip
 typing their names. So the following two lines of code are equivalent
 and both run:</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="at">x =</span> ebola_data, <span class="at">n =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##    id age sex    status date_of_onset date_of_sample
-## 1 167  55   M confirmed    2014-06-15     2014-06-21
-## 2 129  41   M confirmed    2014-06-13     2014-06-18
-## 3 270  12   F confirmed    2014-06-28     2014-07-03
-##   district
-## 1   Kenema
-## 2 Kailahun
-## 3 Kailahun</code></pre>
+<pre><code>##    id age sex    status date_of_onset date_of_sample district
+## 1 167  55   M confirmed    2014-06-15     2014-06-21   Kenema
+## 2 129  41   M confirmed    2014-06-13     2014-06-18 Kailahun
+## 3 270  12   F confirmed    2014-06-28     2014-07-03 Kailahun</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ebola_data, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##    id age sex    status date_of_onset date_of_sample
-## 1 167  55   M confirmed    2014-06-15     2014-06-21
-## 2 129  41   M confirmed    2014-06-13     2014-06-18
-## 3 270  12   F confirmed    2014-06-28     2014-07-03
-##   district
-## 1   Kenema
-## 2 Kailahun
-## 3 Kailahun</code></pre>
+<pre><code>##    id age sex    status date_of_onset date_of_sample district
+## 1 167  55   M confirmed    2014-06-15     2014-06-21   Kenema
+## 2 129  41   M confirmed    2014-06-13     2014-06-18 Kailahun
+## 3 270  12   F confirmed    2014-06-28     2014-07-03 Kailahun</code></pre>
 <p>But if the argument values are in the wrong order, you will get an
 error if you do not type the argument names. Below, the first line runs
 but the second does not run:</p>
@@ -1857,20 +1350,13 @@ help file for the <code>head()</code> function)</p>
 <code>n</code> is 6, so running just <code>head(ebola_data)</code> will
 return the first 6 rows.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ebola_data)</span></code></pre></div>
-<pre><code>##    id age sex    status date_of_onset date_of_sample
-## 1 167  55   M confirmed    2014-06-15     2014-06-21
-## 2 129  41   M confirmed    2014-06-13     2014-06-18
-## 3 270  12   F confirmed    2014-06-28     2014-07-03
-## 4 187  NA   F confirmed    2014-06-19     2014-06-24
-## 5  85  20   M confirmed    2014-06-08     2014-06-24
-## 6 277  30   F confirmed    2014-06-29     2014-07-01
-##   district
-## 1   Kenema
-## 2 Kailahun
-## 3 Kailahun
-## 4 Kailahun
-## 5 Kailahun
-## 6   Kenema</code></pre>
+<pre><code>##    id age sex    status date_of_onset date_of_sample district
+## 1 167  55   M confirmed    2014-06-15     2014-06-21   Kenema
+## 2 129  41   M confirmed    2014-06-13     2014-06-18 Kailahun
+## 3 270  12   F confirmed    2014-06-28     2014-07-03 Kailahun
+## 4 187  NA   F confirmed    2014-06-19     2014-06-24 Kailahun
+## 5  85  20   M confirmed    2014-06-08     2014-06-24 Kailahun
+## 6 277  30   F confirmed    2014-06-29     2014-07-01   Kenema</code></pre>
 <p>To see the arguments to a function, press the <strong>Tab</strong>
 key when your cursor is inside the function’s parentheses:</p>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvAAAACTCAYAAADoWS2nAAABh2lDQ1BJQ0MgUHJvZmlsZQAAKJGFkb9LAmEYx7+nhoGGEdIQDTcFQYXkoENDJdTiIGqYEcF5nqeg9nLeqS1BUFtzc1P0BwgOLbW1Rz+IZqEtkFxKrue909QKeo/j+fDl+3zf554DHKcSY0UXgFJZ1+Kb6+J2ekd0t+CEHx44IEhyha3FYlGyoF9HT+cBAq93izzr0ze1d/xaanhbqcNQN3j+2z9yvFmlIgOCnzgsM00n5nckazrjzPv9Gg1F3OCs2nzLOWPzi+VJxiPEb8STVVmlXgfPD8h5KUscIF7IFY068S7XM0N+dYhLRUPuzca/yquUtxJUZ+idRQ5LKMJAHSIYNOyTUiBFof393Re2+iLkZDigjgJU5KFT/8ZQVsJK0lGDRB6FlCg9Ef4v7Mj2k5UqTI8PtCoDQquAUxxo6XfgagXw3Q+0OQ2YOAGuw0zSpO/NCx2XvafezMLQ9H3GzeWAj4xKLrhsezxNYOzMNNspwD0PdB9N86Npmt0LmueZ7ur8m/2DvwDBmXAU/rLYHQAAAFZlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA5KGAAcAAAASAAAARKACAAQAAAABAAAC8KADAAQAAAABAAAAkwAAAABBU0NJSQAAAFNjcmVlbnNob3TSxUO3AAAB1mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj4xNDc8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+NzUyPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6VXNlckNvbW1lbnQ+U2NyZWVuc2hvdDwvZXhpZjpVc2VyQ29tbWVudD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cl29SBEAACksSURBVHgB7d0HfJRF+sDxZ3fTKaGEjiCgiCCCICIgRYp6ImJXULHA6QkiCmc9FRWsx1nxRBEb6InlPPWvoAgIAoIU6YqNJhAIPYSQ/p/nDe+ym+yGLKTsu/m9n8+y787MO+/M903Is7PzzrpSUlLy5PCWlJRk7/KMAAIIIIAAAggggAACYSjgDsM20SQEEEAAAQQQQAABBBAIIkAAHwSGZAQQQAABBBBAAAEEwlGAAD4crwptQgABBBBAAAEEEEAgiECUb/r2VO90eN9kR+3XrXrkPcnqdeu9bY+KjpWEyokSExfvTWMHAQQQQAABBBBAAAGnCRyJdp3W8hDbm52VIfv37JDMQ+khHklxBBBAAAEEEEAAAQTCR6DCBPA2+cED++xdnhFAAAEEEEAAAQQQcJxAkQF85m+/yN5JE8q1U/vee0cOrfwxaBtc27aLZ+VP4tq5K2gZ3wwdiWdDAAEEEEAAAQQQQMCpAkUG8OlLfpDkkcPKtW8pjzwgB2fOKNyG/akS9dl0iZo2U1wbNoq4C3clacEK8Rw8VPhYUhBAAAEEEEAAAQQQcKiA302shftgbmrNK+8bW/X8BdqQnS1R38yVvLhYybn4AslLqlG46SYl1+OWGkt/kp2d20ie2WdDAAEEEEAAAQQQQMDpAo6Maj3fLRRXZqbk9uwaNHjXC7PvjBbizsqWaqt+cfp1ov0IIIAAAggggAACCFgCxQ7g973zhmzo1kF+P/0k2fv2pEJ8+959Wzb16y2/Nqopf17RV7K3bC5UJn3+XNl+9x3yR8fWsqHrmbLpwnMlbcZ0v3KHli2WHQ/eLes7tZUN57SX7N3+c9vd6zeKe/0mye7WyRqB9zu4wIucmGjZ07a5xG3bJfHbdhbI5SUCCCCAAAIIIIAAAs4TKFYArzeybr9/pCR0P1fi2raT5BF/k4y1q7293f+fyZJ8520S26KV1H76ecncvEk2XfoXM4cl11sm7etpsrFvT8n6c7PUuPV2qXLJ5XLQBPTZ25O9ZdKXLJKN53WVjFUrpNrNt0jVK68Rd3S03ywe1+8bJa9qFcmrX9d7XFE7mTUSJSchTuK27iiqGHkIIIAAAggggAACCDhC4Chz4PP7kPL4aGm6cIVEndBY8jIOyS9fJEr6ogUS2/I0ydm1U7aZgF4D7jomeNctpkkzE4ifIwdmfyOVe50n2cnbZMstg6S6CdztMlouZcxD5t/8+e25B1Jl66CrpUr/y6X+xMnem1J3v/y8uFxaOn9zb0uW3IYN7JfFes5MrCxxO/YUqyyFEEAAAQQQQAABBBAIZ4FijcDXe2miFbxrR1yxceKumii5aWlWv9IXL5I88+VI8R3OlkNLf7Ae4jYRd0yMZK77ySpz0ATyeekHJen+R6zXgf5JX/S9GZ3fJLUfedIbvBcqZ+a9i5nTLknVC2UVlZBdtbK4cnKs+fBFlSMPAQQQQAABBBBAAIFwFyjWCHzlvhf79cPl8Uhebo6VdmjVcivgTnn4Pr8yUbXrmKA9/1tP01csk5imJ4mnWjW/Mr4vDv24VDy1aps3Co18k/32XYcXo8nzHZL3KxH4RZ6+oWBDAAEEEEAAAQQQQCACBIoVwBfVz+hGja3sJmaKjbtKVf+ihwPtzF9/EVdMrF+eNTrvM0devzTKFetfJmvrFsnZt9d7XF5sjIgnSly7QpsOE73vgOS5PZIbfdzd9baFHQQQQAABBBBAAAEEykOgWFNoimpY/FmdrJtV076dZebXmJFu38fhA3VkPWP1Cu+IfN6hQ7LlxgFWbl5WlvXsqV1bss0Nrhq065ZnprxsG3KddYzvUvR5dWubb13dbZUp7j8awGfWKPDmorgHUw4BBBBAAAEEEEAAgTASOO4AXm9YTbzuRrMKzd/k4Lw5VuCdvW2r6M2n+//7gdXVSuf2Fg3Ut997pxyY+bVs7n+exLU/U9zVqouW1a1Sj97W8w6z2k3anFny55UXiTuxmjWtxso4/E9us0bi2rdfXCnFWxYyeq/5xlbzbazp9ZN8q2EfAQQQQAABBBBAAAFHChx3AK+9rvv8K5LQ7VzZfHlf+aVOJVlv1nk/+N23Et3wBAsl8coBZtnIK2TvWxNly9X9JbrZSVL3hQkSc2JTydy00SpTqWcfqTb4b5L6yYfy56UXiDuhkjR48z3R+fa+U95zmzUxq9DUF8/s+SJ6U2sRm36JU/Xl6yQjqZoJ4GsVUZIsBBBAAAEEEEAAAQScIeBKSUk5fGuoSE5szcKt1vkrvhG0lgiUpslmNZqsDesl5uRTzFx1T6G6sjb8Ie7qNcRjRtatLUA9WeYLoNxmpRtP0uGAO0AZDdyjPvtK8hKrSE7H9iJmXXh7q1v1yHuSre9+IZ60dNnVuY3f/Pekevnz9u1jeEYAAQQQQAABBBBAwCkCRw/gw7Qnrj17JWrmdyL7UyWvXh3JOftMyaueKL4B/I6JH8nuM1pIdpVKfr0ggPfj4AUCCCCAAAIIIICAgwQcuyxLXvVqknWZmSe/YZO4duwSV0bG4a+EOqKfck47s/qM/xKSUdH+K90cKc0eAggggAACCCCAAALhL+DYAN6iNcF5blMzHUYfAbaCwbsWSaicGKAkSQgggAACCCCAAAIIOEPA2QF8CMY68q7Be0xcfAhHURQBBBBAAAEEEEAAgfAS8Avg61Txn24SXk0tXmt69OjhLdiq+YnefXYQQAABBBBAAAEEEIgEAb+bWJOSWCs9Ei4qfUAAAQQQQAABBBCIXIEjay5Gbh/pGQIIIIAAAggggAACESPgN4UmYnpFR8JSIE/X9Deb/RyWjaRRCCCAAAIIIBCSgOvw9wXZzyEdTOFjEiCAPyY2DgpFQAN234ceSxAfiiBlEUAAAQQQCE8BO2jXZ99HeLY2clpFAB851zIse6KB+rJly8KybTQKAQQQQAABBI5PoGXLllbg7na7xX5ojXZgf3y1c3QwAQL4YDKkl4iAPdLevn1uidRHJQgggAACCCAQHgJLl7rl0KFD4vF4rEdUVH5YqYE8AXzpXiNHBPBTpn5eugrUXioC1151EVNlSkWWShFAAAEEEAgPAQ3gNXCPjo62GmRPo9EBPIL40rtGjgjgtfvXXd2v9BSoucQF7Ddd9gh8iZ+AChFAAAEEEECg3AU0gLeDdx1519F4fWYrXQHHBPCly0DtpSFA8F4aqtSJAAIIIIBA+AhkZmZajdHAXUfi7b/9jMCX7jVyZAD/0tx9patC7cckMLxbYqHj7F/kQhkkIIAAAggggIDjBbKzs61R99zc3EIrzjm+c2HcAT7jCOOLQ9MQQAABBBBAAIFwFtCBOg3efQP4cG5vpLSNAD5SriT9QAABBBBAAAEEyliAT9rLGPzw6Qjgy8edsyKAAAIIIIAAAgggcEwCBPDHxMZBCCCAAAIIIIAAAgiUjwABfPm4c1YEEEAAAQQQQAABBI5JoMIE8HkHDkrU599Izs7dYm6TPiYsDkIAAQQQQAABBBBAoLwFKkYAb5Y4ipuzUNq1PVnq/fyruHJyCeLL+yeP8yOAAAIIIIAAAggck0DkB/AH06XSvMXS1gTvUVEeadakvlSf9Z3kpRRvJH7/rmQZP7K/fD15nB/w5xMfkylP/E3yzNJJbMcv8L//LZEOHR6QLl0elpSU/VaFqamHpHv3R+W22yYd/wmoAQEEEEAAAQQQiBCByA3gdZqMGWnP+3iatD65oXjcLuuSucxz81ZNpebyVcUaia9as640b9dNvpj0uPz0w0yrjpXffSHfvPe8dOo7SFx8XXCJ/Cr07XuGpKVlyoIFv8rdd79r1fnoox/J3Lk/y/XXdy2Rc1AJAggggAACCCAQCQKO/CbWYsHn5pmR90Vyeq8O4nLlB+/2cW4TdJ/Sqpn8vnCJbGtxsniSathZAZ/7DLxLfl48y4y43ybD/vWJ/Oefd0iva+6QZm06BywfKDF1zw7Zv2t7oCwrTd8oVKleK2h+pGdER3vkxRdvlD59Hpe3354rnTo1N6+ny8CBXaRz5+aR3n36hwACCCCAAAIIFFsgMgN4M21GR94DBe+2jI7En9i4ruz+fplk9+ttJwd81lH2QQ9OlKdu6izjbu0pdU88Rfre/EDAssESv/9isvzfxDHBsqXfXx+WPteNDJpfETJ69z5NrrrqbPngg4Vm2szrEh8fK089NbAidJ0+IoAAAggggAACxRaIvADe3LBa6Yfl0rpn4ZF3X5UcM0K/YuXvknVuZ/Efn/ctdWS/Wq360vEvA2X2B/+Wtt0vFk90zJHMYuz1HninnHvVsKAlPVHRQfMqUsZjj11lBfA6A+raa7vICScU/elIRbKhrwgggAACCCCAgApEVACvS0XqajOnmRtW3YfnvAe6zLkmeF/965+ScX43cUUVj2D7xnUy79M3pfYJJ8lX74yT1uf0lXpNTg1UfcC0P39ZIX+sWhQwTxObtu4ojVq0C5pfUTJef32Wt6s6Ej9mzFVSp06iN40dBBBAAAEEEECgogsUL3p1iFL07AXSxgTv9g2rgZqdZ4Z2v5+1WFyX/8W8fSle93Oys+TtMX+VZq3PlsFjJsszf+0ubz82WEa9OkuiY+ICnaZQWvKGdbJs1seF0u2EhKrVK3wAv3z5RnnuuS/l8svPkpUrN8mvvyabG1qnyDvvBP/kwvbjGQEEEEAAAQQQqCgCxYtgHaKR0amdbDDrvOtSkTrHveCmwftKM/LuGniJmCi/YHbQ17oCze7tm+XWp6ZKbEJlufHhSfLs0D7y6YTRcsUdTwc9zjfjrAsGiD7YAgvopyK33PKaVKuWIC+/PFhWr94svXuPlcmT58ngwT3NcpLF/7Qj8BlIRQABBBBAAAEEIkOg+FGsA/rrqVldUs4+U9at+V1yC6zPrgHigpmLJe2cjiIBgvtg3ftt+XyZ+f6LcvWo5yQxqZ5V7IRT2spFQx6SuR+/Kmu+/yrYoaSHIPDSS9Nl8eI/5NlnB5kpM1WlV69WcsMN3awahg17Q7KyckKojaIIIIAAAggggEDkCrhSUlLM7YL5W1JSkr0bVs9Tpn4u113dz9uml+bu8+4X2jGj7PolTbrOuy4VqSPxesOqznlPO6utSEJ8oUNIKBmB4d2OzFXXazbwyr6Sk5NjpsOslPbtj/6FV/oJie+Sn+al2fJ/PH3TS6a11IIAAggggAACxyOwdKlbYmJiJDY21qwcFy8JCQkSFxdnpXk8HnM/YkSNEx8PVYkfG3myZs13V60asqdnV/l9/VbJzs6R5ct/NSPvHQjeS/zHp2QrLBik6/L9mlYwvWTPSm0IIIAAAggggICzBCJqDryX3gR9eWaOu35Jk67zbi0VWcwbVr11sIMAAggggAACCCCAQBgKRGYAr9AmiNdvWNUvaSp8O2sYXgmahAACCCCAAAIIIIBAMQQibwpNMTpNEQQQQAABBBBAAAEEnCpAAO/UK0e7EUAAAQQQQAABBCqkgCOn0PiudlIhrxqdRgABBBBAAAEEEKiwAozAV9hLT8cRQAABBBBAAAEEnChAAO/Eq0abEUAAAQQQQAABBCqsAAF8hb30dBwBBBBAAAEEEEDAiQIE8E68arQZAQQQQAABBBBAoMIKEMBX2EtPxxFAAAEEEEAAAQScKEAA78SrRpsRQAABBBBAAAEEKqwAAXyFvfR0HAEEEEAAAQQQQMCJAhUmgE/ddUD+8/AnsmPjTsnLzXPitaLNJShw8GCGXHTRMzJjxqoSrJWqEEAAAQQQQACB0heoEAF8Vka2fPnSTDmpxUmy6IMfJTsrhyC+9H+2wvoM2dm58sUXP8rmzbuKbOdHHy0St3ugbNq0s8hyZCKAAAIIIIAAAmUlEPEBfNregzL95VnSrEUzcXvcUq9hPfnkiS9l+4YUgviy+ilz8HlOPrmujBhxgVSpEl9ivRgz5r8ye/aaEquPihBAAAEEEECgYglEbACfl5cnOWak/Z37PpB69euLy+WyrqzL7ZImLZrI3LcXMhJfsX7Wj6m3bdo0lmefHSTVq1c6puMDHTR69IeyfPnGQFmkIYAAAggggAACRxWI2AA+10yR+PKlWdKhx5ne4N3WcLvd0rRFU5n+4mxJOcoUCvuYcHnevn27Cf6WB33s2LEjXJp61HbMnLlarr/+ZWnefKSccMLtcuutE2X79n3e43SU+vTT75H163fIqFGT5cQT75DOnR+2pr54CwXZWbLkD+nde6zUqPFXadTodrnppldk587UgKXHjv3EakO9erfJHXe8JRkZWd5yOke+TZt7ZNu2vd60P//cLf37/9ME9UOkWbM75ZVXZnjz7J0PPlgoHTs+KImJg6VOnb/JxRf/08pq0+ZeMe8t5ZlnPrf69sIL0+xDeEYAAQQQQAABBIolEJEBvE6beW34ZDPyXs8g5I+8F9TQkfi6DerKzEnfFcwK69eTJk2SM844I+hD852y6fzz009vJB9+OELefvs2ee+9BTJ58pHrkZp6SFat2iwDBrxoAvv9ZiT8eqlcOU6GDXvDBMHBb0Res+ZP6dJltCkbL599NkqeemqgLFmyXrp1e0SyzKcyvtuLL06X1as3y+OPXy0XXthW/v3vGfLQQx96i+zbd9BqQ1ZWtpWWnp4pXbs+IrGxMfLttw/J3//eV26//U3RNyP29uqrM+Waa14wgX9jmT//Efnyy3vMG4geVvb48Tdbz1dc0VFefnmwXHJJB/swnhFAAAEEEEAAgWIJRBWrlIMK6Q2rs96YF3Dk3bcbGgD+8csfctGIPr7JYb9/7733ysiRI4O2Mzo6OmheuGXceGN3vyb16NHSBLvLTVB8kV96166nmhHrgdYnKToT6rLLnpW1a7dIq1YN/crZLx577GNz46lL3n9/uMTFxVjJNWtWlgsueFLefXee+J63V6/TZNy4a626Nahevz5FXnttpnU+uz7f5zffnCMbzUpGc+c+Yj41qGEF6Rr0v/XWHNG6dHvooamSlFTVjMwPEY8n/w1k+/ZNrbyuXU+xnps2rW3eCOTvWwn8gwACCCCAAAIIFFMgogJ4XSpSV5vRG1btOe+BHDR437Z1q1x2f1+JjnUWwbJly8yo7vxA3bLSunTpIh06OGdUd9my9VbQnpy8x4x0b5L69asX6tttt/XxXk8NxHXzneZS8ACdX96pU3Nv8K7555xzikRHewrNPdc3AfbPir456Ny5uXWDqU63SUqqUrBqc/wGq57rrnvJm5ecvFc2bEiwXm/dukdSUlKtEXc7ePcWZAcBBBBAAAEEECgBAWdFr0fp8P+9MMNaKtIOyAIV1+B98bdLZNBTVx1T8J6ammpWJCkc2Pmeq6TK+NZp769du9aMLL9vvyz0XKNGDccE8MOHv2mmzcyX4cMvMHPKO8i6dcmSlnaoUJ9CTcjMzJaEhPyRd/tYDd6jojxmCk3+VBg7veBzbm6ulRQf73+8XS7XfIdAXFy03HVXX2/gr3nVquUH8JqvW6VKsdYz/yCAAAIIIIAAAiUtEFFz4HsN7irJW5KDLg+ZP/K+TW556XqpdDjgCgX0lVdeMYFaNZkwYULQw0qqTLAT3HDDDbJw4cKgj0GDBgU7NKzSdV318eO/NnPPB8jo0VdInz6tS2yll5YtG8q8eevEDqa144sW/SY6f/3UUxsU6fD9979K48ZJQQPwtm0by/796VZ+//7tzRuP/Ef37qda9TZsWEP0U4JPPlkcdJ6+vsEs6hOEIhtIJgIIIIAAAghUeIGICuBrnVBTLrjjXPnj5z9M8JY/kmpfYXvk/cLhPcUddWzd3rBhg1WvPgfbSqpMsPojJb1SpThrJHvVqo2yY8c+E8x/ZYLun60vVvINvI+lv3ff3U/05tN//GOqtfLMjz9uEF17vU6dRBk0qJtflbqCzMqVm6ybWydNmm0F+nfeeaFfGd8XN9/cQ5o0qS333/8fazWc7Owc0VVp5s9f5y2mb0i2bNlt3Qy719xQrTfrTp36vTdfp/NMm7ZCDhw4/k8bvJWygwACCCCAAAIVRuDYItkw5dGVZaLMVIluN5wt639e7x2Jt+e867QZj8kvaopNUV0bO3asuXlxrgkGxwQtVlJlgp4gQjJ0lFoD3XffnW/mvQ+1AtoJE/4qycn7zM2do4+rlz16nCpTptwur78+Sxo2HCbt2z8gu8z9EV99db9Urer/hUznnXe6XHrpv8xyjzfL0KGTROfbDx9+ftDzJyTEmhVn/mE+ialkLQ1ZpcrN0qLFKJk4cZb3mNtvP0+efnqgPPfcl2YZyyHStOkIefLJT73599xzsfXNrrVr32rKfeZNZwcBBBBAAAEEECiOgCslJcW7Hl9SUlJxjinzMlOmfi7XXd2v2OfNM/OQs81ygbrOuy4VqavNOPGG1WJ3OAwL6jUbeGVfycnJMSPcK00Q7f+JiN3kgwcz5ODBTGvaib6x2rUrVWJiorzffKpvvgq+4QqUZtfn+6zldKpO1aoJ1hx133o0b8eO/SbArmzmxrutcrVqVZX4+FhzviO1TJjwjVkVZ4rs3v261S47R49PS8uwPj1o3LiWWfXG7XecltPReV2xpkGD6mbZyWi/fugnRJp3gvnUSOfmsyGAAAIIIOA0gaVL3eZvY4z5Gxdr/n7Gm/vPEsyn63FWmsfjsf42Oq1PTmlvRN3EaqPbI/EdrzrDWuddl4p02mozdl8i/VlHtPVhbzVr+t8g7Bt022UCpdl5vs9aToPrQJvm6ZQae/Mtp+vPL1r0qzVffvr0FdKzZyu/4F2P0eN1TXp9BNs0MG/WrE7AbA34dSoOGwIIIIAAAgggEKpARE2h8e28BvG1zc2IAx67VKocXnrQN599BIIJ6KcC+o2sOvVFR+N1qg8bAggggAACCCAQLgIROQIfLri0w5kCOjK/Zs04awqMjqIXd8Tfmb2l1QgggAACCCDgNAECeKddMdpbJgIatEdH8+tRJticBAEEEEAAAQRCEojYKTQhKVAYAQQQQAABBBBAAAGHCBDAO+RC0UwEEEAAAQQQQAABBFSAAJ6fAwQQQAABBBBAAAEEHCTgmEm+uq44GwIIIIAAAggggAACFV3AEQF8KF/iVNEvaDj1X7+siA0BBBBAAAEEEECgZAWYQlOyntSGAAIIIIAAAggggECpCjhiBL5UBai8zARSUsrsVJwIAQQQQAABBEpJoFbgLzkvpbNRbSABRuADqZCGAAIIIIAAAggggECYChDAh+mFoVkIIIAAAggggAACCAQSIIAPpEIaAggggAACCCCAAAJhKkAAH6YXhmYhgAACCCCAAAIIIBBIgAA+kAppCCCAAAIIIIAAAgiEqQABfJhemIrQrKysbNm0aYf12LVrv+Tl5ZVpt33Pb7fj4MEMvzZs27ZbtmzZ5ZdW8MX06Uvk2mufkZtvfq5gVqm83r//oAweHPhcBfN27twvBw4cCtgOTdf80truvPNV2bp1d6HqNe2uu14tlH60hGD1He048hFAAAEEEIg0AQL4SLuiDurP2rWbpVOnUSaYe026dbtH2rUbLr/8sqXMeqDnP/vskfL3v7/uffz44+/W+Zct+1169rzPatfMmcuDtikrK0c0sHzyyZtk9Ohrg5YryYzMzGz5/PMfAlZZMG/06Cnyv/99b5XVNyz6RsnePvlkgTzyyLv2yxJ//uqrZZKaml6oXk2bPn1ZofSjJQSr72jHkY8AAggggECkCbAOfKRdUYf1Jy4uWj766B9Wq2+44V/y1lsz5IknbvT2IicnV7KzcyQ2NtpKO3QoU+LiYrz59k56eoZER0dJVJTHTrKedZS5UqVYcblcfun2C6136tT77Zfecqee2tAEmWPlllte9OYF2vnpp02SkBAnjRr5L4qbm5sn2taEhNhAh4mO9AfLy8jIkpiYKG9b7Aq0Tg3CA23B8saPH2rqyT/iv/9dIJ99tlDeffceK+H663vKddf19KvuaO3Wa6GWHo//e/9gbfarPMCLYPVlZmaZaxklbnfg6+ZblZaNicn/+fBNZx8BBBBAAIFIFSCAj9Qr66B+2cF19epVJDl5j9VyHY0fMuR8mTTpa3nooQHSq1dbE0y/INu27ZE6dapZo90tWzYSDThvuulfsnv3ATO6nCrvvDNKTjqpvjUtZ+jQl61gU4P7b755MqiIfX7fAvHxgQNv3zJpaYfk1ltflB079lqj9ffff7X06XOGPPPMR/LmmzMkMbGS1KpVVSZMGC4NGtQ0bZsp3323WrQ9OhI+bdpY3+qs6SZDhujUGJfs2XNAHnzwGunb9yyrzKefLpR7731DateuJqec0sDvuKLyhg0bbz5lOFXOP7+9PP30h7JvX5rV1nHjhsjq1Rtl0aKf5eWXh1n1BWu3fipyzTVPye239zNl/8+a6vTqq8OlQ4fmRbbZr5EBXrzxxteF6tNijz76nnnztESqV68kw4b18xr4VjF06Hjzpqm2ua4/milOu6Vfv7Osn4lKleJ8i7GPAAIIIIBARAr4D6NFZBfpVDgL6LT3337bKq+//pU11WPgwHOt5qanZ8qaNZtkwYJxcsklnUSnezRpUldmz35KtMxrr02zyi1c+LOsW7dFPv74QZk/f5wVvGvGBx98J02b1jMjzqNlxownrLKB/tHRW51Goo+JE6cHKhI0TYPF8eOHmTcU1WXmzCet4F3n0r/33myrLdr29u1PtvqmleinCbNmrZCRIy+TL78cU6jeGjUqm9Hx++SLLx6Vu+++wnoTYBcaPXqy6dP9MmfO03L55V3sZOu5qLzMzBzrvPqm5557rpSOHVtYbW3X7iQrPSMjf0S/qHbrNdq6dZds375XFi58VgYM6C5Tpsy2zl1Um/0aWeDFnj2pAev7/fdtpo8rZd68cab/o6xgvsCh1kvt1w8//GJM/mF+Rv4lS5f+ZoL54FOdAtVBGgIIIIAAAk4VIIB36pWLkHbraPQDD7wtGkjPnPmE9O7d1tuz4cP7m6kz+dNlPv98kfz002YZMWKCFczPmbPKKte69YnWKPuAAU/J2rWbvMf27NnWBMmLTdA6yYzOp3rTC+643W4zQt3CerRq1bhg9lFf26P39rOOhnfu3FJq1Khipn+45aKLzpJPP82fg66VnXtuGzPX/ySrzQUr16lBubk5onO9tX86sq/bmjUbzai3yOmnN7GOO/PM5t5Di8rzFjq8Y0+lsdvqm3+0dlerVlnuu+8qa5qSjnynpOyzDg/WZt+6A+0Hq0+vs07H0Ztcx479j/WJzMaNOwJVYUbdOxrnymakvrLlOnv2ioDlSEQAAQQQQCDSBAjgI+2KOqw/Og986tT7ZOjQi7yj53YX7IBTX2sQ3qVLKzON5kJzw+nlZgT4bqtYlSrxZlT7STMtpI0ZmR5rjXBrRrt2zWTu3GdMwOuWc865O+hqKzpn/oIL2luPzp1Pteo8nn90lF0Dd3uz+1CcFXZ02siFFz5sHdqjR2u7CmvaUHx84Xn/WkCnFAXL81ZQjJ2jtVuDfrsvvtUFa7NvmUD7werT69y0aV3rOt9664XWpxG1aycGqsIvTe8NqFXr6OX8DuIFAggggAACDhU4Emk4tAM02/kCgUaEC/ZK55bPnbvKBPn15LTTGovOf9dNVzTRGxiHDu0nl17aRZYt+81K37v3gNSvX9PM+77ZCuzKanWb/v3PNlM61nqXbpw2balcfHHHgCPuVkN9/pkx40dT9mzrzURaWoa5CTbLytU3FrqUpX4CoW8Epk6d4z2qqDxvocM7OlKdnFx4WUfNPtZ2B2tzwXMX97V+ArNgwU/WNdPrrJ+wBLppWetbt+5P66ZeHbGfP3+tNYWpuOehHAIIIIAAAk4WIIB38tWrQG0fMeISadgwSdq0GWbmxD9mgtwHrd5rUH/mmXeY0fcx5qbMDTJoUC8r/fnnP7WWiLzkkkelRYuGZlpLaKPrGhDqMpLz5q2RZ5/9r7UfbAUY38ug8/T79+9kbvAcId273yPffrvSrNl+vm+RoPtXX91N3n9/jvnE4O+ic8F1FZsJE760Vqt5+OFrzY2kT8pZZ93l92ZAP8EIllfwRDqqr2+WdJRf3wz4bsfa7mBt9q07lP1u3VrLqFGXmU9bRpk3M49YhsHefOm9E92732uu813WGzu934ANAQQQQACBiiDgSklJMbNr87ekpCR7l2cEjlsgNzfX3CiZIytXrjQ3c+aaedOFq9QR5UAj8IHSNU3nzOsNjImJCd7jdPrH/v3pUq3akTSdM56ZmWlGaHPMMpJx3rIFWxDoPHYZzfPdArVT8wvWYZ9bR9F11Nv3uIJlfevXfV3HXd8o6NKU6emHrGUx7SUSMzIyrbr0dcF6guUVLKevdcUenTuu7fLND6XdvscFa7NvmYL9LJhX8LUuL7lnT5okJVXx+vmWGTLkBRPktzRfoNXDLMmZ6ffzUPBcvEYAAQQQKFmBWodXTl661G0+BY8x96vFmumc8eZvV4L51DTOSvN4PH5TSku2BdTGMpL8DJSrgG9w69uQQOmapoGt+f/Bb9M1yXXJQd9N52vrDbDm/5Qit0DnsQ8oKs8uo88Fyx05d+F56wXL+taj+7r+uz500776bvYNvZpWsJ5geQXL6euaNat4q/XND6XdvscFa7NvGe8JD+8UzCv4Wu9N0CU4fbeCZTRP38zYb3B8y7KPAAIIIIBAJAsQwEfy1aVvCESowKOPXm99QVeEdo9uIYAAAgggUKQAAXyRPGQigEA4CjRoUCMcm0WbEEAAAQQQKBMBbmItE2ZOggACCCCAAAIIIIBAyQgQwJeMI7UggAACCCCAAAIIIFAmAkyhKRNmTqIC9l3raCCAAAIIIIAAAggcuwAj8Mdux5EIIIAAAggggECFFgi0QliFBimjzjMCX0bQFf00ulYsGwIIIIAAAghEloAG8G6323roPgF92VxfAviyca6wZ9Ff5JYtW5pvFT3kfegXLGVnZ1tfIqRfzsOGAAIIIIAAAs4SsIP1qKgosb+0yU4jiC/9a0kAX/rGFfYM9i+wPusvt/6SR0dHWx76Wr+plQ0BBBBAAAEEnCmgI+/691z/ttuBvO/ffmf2yhmtJoB3xnVybCv1F9n3F1w7YgfvBPCOvaw0HAEEEEAAAe/UGXuATv++6998O4iHqPQECOBLz7bC16y/wHYAr7/cuukvtu7r1Bmmz1T4HxEAEEAAAQQcLGD/ndfAXR/6990O4AniS/fCEsCXrm+Fr90O4BVC9/UX3A7eCeAr/I8HAAgggAACDhawA3j7b70G73YA7+BuOaLpBPCOuEzObaT+Uutm/0Lrs24E7xYD/yCAAAIIIOBoAfvvvG8wb6c5umNh3ngC+DC/QJHQPPuX2g7a7edI6Bt9QAABBBBAoKIL2AG7/VzRPcqi/wTwZaHMOSwB+xfbfoYFAQQQQAABBBBAIHQBvl0ndDOOQAABBBBAAAEEEECg3AQI4MuNnhMjgAACCCCAAAIIIBC6AAF86GYcgQACCCCAAAIIIIBAuQkQwJcbPSdGAAEEEEAAAQQQQCB0AQL40M04AgEEEEAAAQQQQACBchMggC83ek6MAAIIIIAAAggggEDoAgTwoZtxBAIIIIAAAggggAAC5SZAAF9u9JwYAQQQQAABBBBAAIHQBQjgQzfjCAQQQAABBBBAAAEEyk2AAL7c6DkxAggggAACCCCAAAKhCxDAh27GEQgggAACCCCAAAIIlJsAAXy50XNiBBBAAAEEEEAAAQRCFyCAD92MIxBAAAEEEEAAAQQQKDcBAvhyo+fECCCAAAIIIIAAAgiELkAAH7oZRyCAAAIIIIAAAgggUG4CBPDlRs+JEUAAAQQQQAABBBAIXYAAPnQzjkAAAQQQQAABBBBAoNwECODLjZ4TI4AAAggggAACCCAQugABfOhmHIEAAggggAACCCCAQLkJEMCXGz0nRgABBBBAAAEEEEAgdAEC+NDNOAIBBBBAAAEEEEAAgXITIIAvN3pOjAACCCCAAAIIIIBA6AIE8KGbcQQCCCCAAAIIIIAAAuUmQABfbvScGAEEEEAAAQQQQACB0AUI4EM34wgEEEAAAQQQQAABBMpNgAC+3Og5MQIIIIAAAggggAACoQv8PyFTn2Xb4YpZAAAAAElFTkSuQmCC" /></p>
@@ -2083,7 +1569,9 @@ workhorse function <code>CreateTableOne()</code>.</p>
 ##      Western Urban            5 ( 2.5)</code></pre>
 <p>You can see there are 200 patients in this dataset, the mean age is
 33 and 38% of the sample of the sample is male, among other details.</p>
-<p>Very cool!</p>
+<p>Very cool! (One problem is that the package is assuming that the date
+variables are categorical; because of this the output table is much too
+long!)</p>
 <p>The point of this demonstration of {tableone} is to show you that
 there is a lot of power in external R packages. This is a big strength
 of working with R, an open-source language with a vibrant ecosystem of
