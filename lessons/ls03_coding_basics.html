@@ -1388,11 +1388,8 @@ arguments.</p>
 <p>And as you might recall, we can also <code>paste()</code> named
 objects:</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="st">&quot;Luigi&quot;</span></span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;My name is&quot;</span>, first_name, <span class="st">&quot;any my last name is &quot;</span> last_name)</span></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:2:56: unexpected symbol
-## 1: first_name &lt;- &quot;Luigi&quot;
-## 2: paste(&quot;My name is&quot;, first_name, &quot;any my last name is &quot; last_name
-##                                                           ^</code></pre>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;My name is&quot;</span>, first_name, <span class="st">&quot;any my last name is&quot;</span>, last_name)</span></code></pre></div>
+<pre><code>## [1] &quot;My name is Luigi any my last name is Fenway&quot;</code></pre>
 <div class="pro-tip">
 <p>Functions like <code>paste()</code> can take in many values because
 they have a special argument, an ellipsis: <code>…</code> If you consult
