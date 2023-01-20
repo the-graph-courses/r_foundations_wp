@@ -9,6 +9,7 @@ This script copies the staging content into the wp repo, renders the lessons, th
 
 The HTML files in this repo are hosted on GitHub pages, then embedded on our Wordpress. 
 
+.
 
 
 
