@@ -1860,6 +1860,8 @@ pour organiser et analyser les données. Alors, commençons !</p>
 <div id="objectifs-dapprentissage" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Objectifs
 d’apprentissage</h1>
+<p>Voici les objectifs d’apprentissage. Vous pouvez faire pause et lire
+ces objectifs maintenant, mais nous y reviendrons à la fin.</p>
 <ol style="list-style-type: decimal">
 <li><p>Vous pouvez créer des vecteurs avec la fonction
 <code>c()</code>.</p></li>
@@ -1871,7 +1873,8 @@ frame.</p></li>
 <div id="packages" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Packages</h1>
 <p>Veuillez charger les packages nécessaires pour cette leçon avec le
-code ci-dessous :</p>
+code ci-dessous : [Pour cette leçon, nous avons seulement besoin de
+tidyverse. Nous chargeons donc pacman puis chargeons tidyverse]</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code></pre></div>
 </div>
@@ -1884,13 +1887,14 @@ classe (par exemple, toutes numériques ou toutes caractères).</p>
 <p>Les vecteurs peuvent être créés en utilisant la fonction
 <code>c()</code> :</p>
 <p>On écrit :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># c, parenthèse ouvrante, 1, virgule, 2, virgule, 3, parenthèse fermante</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Nous pouvons assigner ce vecteur à un objet appelé mon_vec de cette
 manière :</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>mon_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
-<p>Définissons maintenant un ensemble de quatre vecteurs différents pour
-trois personnes :</p>
+<p>Définissons maintenant un ensemble de trois vecteurs différents pour
+trois personnes théoriques :</p>
+<p>Dans notre script, nous écrivons :</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">46</span>) <span class="co"># age est égal à dix-huit, vingt-cinq et quarante-six</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>sexe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;H&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;F&#39;</span>)  <span class="co"># sexe est égal à c, &quot;H&quot; pour homme, &quot;F&quot; pour femme, &quot;F&quot; pour femme</span></span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>test_positif <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F) <span class="co"># test_positif est égal à c T, qui représente TRUE, T, F, qui représente FALSE</span></span>
@@ -1902,50 +1906,51 @@ trois personnes :</p>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">class</span>(test_positif)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">class</span>(id)</span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
 <div class="r-practice">
 <p>Chaque ligne de code ci-dessous tente de définir un vecteur avec
 trois éléments mais contient une erreur. Corrigez les erreurs et
-effectuez les commandes.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>mon_vec_1 <span class="ot">&lt;-</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>mon_vec_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Obi&quot;</span>, <span class="st">&quot;Chika&quot;</span> <span class="st">&quot;Nonso&quot;</span>)</span></code></pre></div>
+effectuez l’affectation.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>mon_vec_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>mon_vec_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Obi&quot;</span>, <span class="st">&quot;Chika&quot;</span>, <span class="st">&quot;Nonso&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="manipulation-de-vecteurs" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Manipulation de
 vecteurs</h1>
+<p>Maintenant, passons à la manipulation des vecteurs.</p>
 <p>La plupart des fonctions et opérations que vous connaissez déjà
 peuvent être appliquées à des vecteurs.</p>
 <p>Par exemple, considérons le vecteur age, nous pouvons multiplier
 <code>age</code> par 2 :</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>age</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>age</span></code></pre></div>
 <pre><code>## [1] 18 25 46</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>age <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>age <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 36 50 92</code></pre>
 <p>Remarquez que chaque élément du vecteur a été multiplié par 2.</p>
 <p>Ou, ci-dessous nous prenons la racine carrée de <code>age</code>
 :</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>age</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>age</span></code></pre></div>
 <pre><code>## [1] 18 25 46</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">sqrt</span>(age)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">sqrt</span>(age)</span></code></pre></div>
 <pre><code>## [1] 4.242641 5.000000 6.782330</code></pre>
-<p>Vous pouvez également additionner des vecteurs :</p>
-<p>Par exemple, si nous voulons ajouter le vecteur <code>age</code> au
-vecteur <code>id</code>.</p>
-<p>Regardons d’abord le vecteur <code>age</code> :</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>age</span></code></pre></div>
+<hr />
+<p>Vous pouvez également additionner (numériquement) des vecteurs :</p>
+<p>Par exemple, si nous voulons ajouter le vecteur age au vecteur
+id,</p>
+<p>regardons d’abord à nouveau ce qu’est age :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>age</span></code></pre></div>
 <pre><code>## [1] 18 25 46</code></pre>
-<p>et <code>id</code> :</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>id</span></code></pre></div>
+<p>et id est :</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Nous pouvons simplement les additionner de cette manière :</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>age <span class="sc">+</span> id</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>age <span class="sc">+</span> id</span></code></pre></div>
 <pre><code>## [1] 19 27 49</code></pre>
 <p>Notez que le premier élément de <code>age</code> est ajouté au
 premier élément de <code>id</code> et le deuxième élément de
 <code>age</code> est ajouté au deuxième élément de <code>id</code>, et
 ainsi de suite.</p>
+<hr />
 </div>
 <div id="des-vecteurs-aux-data-frames" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Des vecteurs aux data
@@ -1955,14 +1960,14 @@ l’objet le plus utilisé dans l’analyse de données : les data frames</p>
 <p>Un data frame est une collection de vecteurs de même longueur. Nous
 pouvons créer un data frame en utilisant la fonction
 <code>data.frame()</code>.</p>
+<p>Essayons de le faire.</p>
 <p>Rappelez-vous que nous avons précédemment créé trois objets vecteurs,
-(<code>id</code>, <code>age</code>, <code>sexe</code> et
-<code>test_positif</code>) pour trois individus :</p>
+(id, age, sexe et test_positif) pour trois individus :</p>
 <p>Nous pouvons maintenant utiliser la fonction
 <code>data.frame()</code> pour les combiner dans une seule data frame
 :</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>donnees_epi <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id, age, sexe, test_positif)</span>
-<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>donnees_epi</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>donnees_epi <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id, age, sexe, test_positif)</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>donnees_epi <span class="co"># on peut l&#39;imprimer pour voir</span></span></code></pre></div>
 <pre><code>##   id age sexe test_positif
 ## 1  1  18    H         TRUE
 ## 2  2  25    F         TRUE
@@ -1970,10 +1975,10 @@ pouvons créer un data frame en utilisant la fonction
 <p>Au lieu de créer chaque vecteur séparément, vous pouvez créer votre
 data frame en définissant chacun des vecteurs à l’intérieur de la
 fonction <code>data.frame()</code>.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>donnees_epi_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">46</span>), </span>
-<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>                           <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">&#39;M&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;F&#39;</span>))</span>
-<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a>donnees_epi_2</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>donnees_epi_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">46</span>), </span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>                           <span class="at">sexe =</span> <span class="fu">c</span>(<span class="st">&#39;M&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;F&#39;</span>))</span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a>donnees_epi_2</span></code></pre></div>
 <pre><code>##   age sexe
 ## 1  18    M
 ## 2  25    F
@@ -1987,16 +1992,16 @@ de tels cas que la fonction <code>data.frame()</code> sera utile.</p>
 <p>Pour extraire les vecteurs du data frame, utilisez la syntaxe
 <code>$</code>, appelée le signe dollar. Exécutez les lignes de code
 suivantes dans votre console pour observer cela.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>donnees_epi<span class="sc">$</span>age</span>
-<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">is.vector</span>(donnees_epi<span class="sc">$</span>age) <span class="co"># vérifie que cette colonne est bien un vecteur</span></span>
-<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a><span class="fu">class</span>(donnees_epi<span class="sc">$</span>age) <span class="co"># vérifie la classe du vecteur</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>donnees_epi<span class="sc">$</span>age</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="fu">is.vector</span>(donnees_epi<span class="sc">$</span>age) <span class="co"># vérifie que cette colonne est bien un vecteur</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a><span class="fu">class</span>(donnees_epi<span class="sc">$</span>age) <span class="co"># vérifie la classe du vecteur</span></span></code></pre></div>
 <div class="r-practice">
 <p>Combinez les vecteurs ci-dessous dans un data frame, avec les noms de
 colonnes suivants : “nom” pour le vecteur de caractères, “nb_enfants”
 pour le vecteur numérique et “est_marie” pour le vecteur logique.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>vecteur_caracteres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;Joe&quot;</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>vecteur_numerique <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a>vecteur_logique <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F, F)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a>vecteur_caracteres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Jane&quot;</span>, <span class="st">&quot;Joe&quot;</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a>vecteur_numerique <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>vecteur_logique <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F, F)</span></code></pre></div>
 </div>
 <div class="r-practice">
 <p>Utilisez la fonction <code>data.frame()</code> pour définir dans R un
@@ -2029,13 +2034,13 @@ fournie par le package <em>tidyverse</em>. Elle s’appelle un
 <code>tibble</code>, et c’est une version améliorée du data frame.</p>
 <p>Vous pouvez convertir un data frame en tibble avec la fonction
 <code>as_tibble()</code> :</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>donnees_epi</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>donnees_epi</span></code></pre></div>
 <pre><code>##   id age sexe test_positif
 ## 1  1  18    H         TRUE
 ## 2  2  25    F         TRUE
 ## 3  3  46    F        FALSE</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>tibble_epi <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(donnees_epi)</span>
-<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>tibble_epi</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>tibble_epi <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(donnees_epi)</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>tibble_epi</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##      id   age sexe  test_positif
 ##   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;       
@@ -2050,18 +2055,25 @@ première ligne :</p>
 1     1    18 M     VRAI
 2     2    25 F     VRAI  
 3     3    46 F     FAUX</code></pre>
-<p>Et indique également les types de données en haut de chaque
-colonne.</p>
+<p>Et indique également les types de données en haut de chaque colonne
+:</p>
+<pre><code># A tibble: 3 × 4
+     id   age sexe   test_positif
+  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
+1     1    18 M     VRAI
+2     2    25 F     VRAI
+3     3    46 F     FAUX</code></pre>
 <p>Ici, “int” signifie “entier” (“integer”), “dbl” signifie “double”
 (qui est un type numérique), “chr” signifie “caractère” et “lgl”
 signifie “logique”.</p>
+<hr />
 <p>L’autre avantage des tibbles est qu’ils évitent d’inonder votre
 console lorsque vous imprimez un grand tableau.</p>
 <p>Considérez, par exemple, ce que vous voyez dans votre console lorsque
 vous exécutez les lignes ci-dessous :</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="co"># imprime le data frame infert (un jeu de données R intégré) </span></span>
-<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a>infert <span class="co"># Impression très longue</span></span>
-<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a><span class="fu">as_tibble</span>(infert) <span class="co"># impression plus gérable</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="co"># imprime le data frame infert (un jeu de données R intégré) </span></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a>infert <span class="co"># Impression très longue</span></span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a><span class="fu">as_tibble</span>(infert) <span class="co"># impression plus gérable</span></span></code></pre></div>
 <p>Pour la plupart de vos besoins d’analyse de données, vous devriez
 préférer les tibbles aux data frames classiques.</p>
 <div id="read_csv-crée-des-tibbles" class="section level2" number="7.1">
@@ -2069,13 +2081,13 @@ préférer les tibbles aux data frames classiques.</p>
 <code>read_csv()</code> crée des tibbles</h2>
 <p>Lorsque vous importez des données avec la fonction
 <code>read_csv()</code> de {readr}, vous obtenez un tibble :</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>ebola_tib <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://tinyurl.com/ebola-data-sample&quot;</span>) <span class="co"># Nécessite internet pour fonctionner</span></span>
-<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a><span class="fu">class</span>(ebola_tib)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>ebola_tib <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://tinyurl.com/ebola-data-sample&quot;</span>) <span class="co"># Nécessite internet pour fonctionner</span></span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a><span class="fu">class</span>(ebola_tib)</span></code></pre></div>
 <pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 <p>Mais lorsque vous importez des données avec la fonction
 <code>read.csv()</code> de base, vous obtenez un data.frame :</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>ebola_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://tinyurl.com/ebola-data-sample&quot;</span>) <span class="co"># Nécessite internet pour fonctionner</span></span>
-<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a><span class="fu">class</span>(ebola_df)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>ebola_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://tinyurl.com/ebola-data-sample&quot;</span>) <span class="co"># Nécessite internet pour fonctionner</span></span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a><span class="fu">class</span>(ebola_df)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <p>Essayez d’imprimer <code>ebola_tib</code> et <code>ebola_df</code>
 dans votre console pour observer le comportement d’impression différent
@@ -2094,20 +2106,6 @@ package dplyr, qui amélioreront encore vos compétences en analyse de
 données.</p>
 <p>Félicitations d’être arrivé jusque-là ! Vous avez beaucoup appris et
 vous pouvez être fiers de vous.</p>
-</div>
-<div id="solutions" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Solutions</h1>
-<p>Solution au premier bloc r-practice :</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>mon_vec_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># Utilisez la fonction &#39;c&#39; pour créer un vecteur</span></span>
-<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>mon_vec_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Obi&quot;</span>, <span class="st">&quot;Chika&quot;</span>, <span class="st">&quot;Nonso&quot;</span>) <span class="co"># Séparez chaque chaîne par une virgule</span></span></code></pre></div>
-<p>Solution au deuxième bloc r-practice :</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">nom =</span> vecteur_caracteres,</span>
-<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a>                 <span class="at">nb_enfants =</span> vecteur_numerique,</span>
-<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a>                 <span class="at">est_marie =</span> vecteur_logique)</span></code></pre></div>
-<p>Solution au troisième bloc r-practice :</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="co"># Solution au troisième bloc r-practice</span></span>
-<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a>pieces <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">piece =</span> <span class="fu">c</span>(<span class="st">&quot;salle à manger&quot;</span>, <span class="st">&quot;cuisine&quot;</span>, <span class="st">&quot;chambre&quot;</span>),</span>
-<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a>                     <span class="at">nb_fenetres =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>))</span></code></pre></div>
 <div id="contributeurs" class="section level2 unlisted unnumbered">
 <h2 class="unlisted unnumbered">Contributeurs</h2>
 <p>L’équipe suivante a contribué à cette leçon :
